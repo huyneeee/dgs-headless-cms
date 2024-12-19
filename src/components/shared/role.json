@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_roles",
+  "info": {
+    "displayName": "Role",
+    "icon": "briefcase"
+  },
+  "options": {},
+  "attributes": {
+    "role": {
+      "type": "enumeration",
+      "enum": [
+        "AdvisoryBoard",
+        "SeniorLeadershipTeam",
+        "MiddleSchool",
+        "HighSchool"
+      ]
+    }
+  }
+}

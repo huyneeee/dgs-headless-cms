@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blogs_raw_contents",
+  "info": {
+    "displayName": "section",
+    "icon": "book",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "blocks"
+    },
+    "media": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    }
+  }
+}
