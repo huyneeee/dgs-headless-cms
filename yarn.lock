@@ -2168,7 +2168,7 @@
     semver "7.5.4"
     umzug "3.8.1"
 
-"@strapi/design-system@2.0.0-rc.14", "@strapi/design-system@^2.0.0-rc.10":
+"@strapi/design-system@2.0.0-rc.14", "@strapi/design-system@^2.0.0-rc.10", "@strapi/design-system@^2.0.0-rc.14":
   version "2.0.0-rc.14"
   resolved "https://registry.yarnpkg.com/@strapi/design-system/-/design-system-2.0.0-rc.14.tgz#7478f50b3740311a3df3b929f410699b039cf5ef"
   integrity sha512-zOtArGfAQmKO5qqRE0IlONfjR1JL2VL/KjV3hE++KSybOZgfhbdckN4svpNtJ6i2Pv+glm7nHdu9h6AHRBuujQ==
@@ -2240,7 +2240,7 @@
     react-redux "8.1.3"
     yup "0.32.9"
 
-"@strapi/icons@2.0.0-rc.14", "@strapi/icons@^2.0.0-rc.10":
+"@strapi/icons@2.0.0-rc.14", "@strapi/icons@^2.0.0-rc.10", "@strapi/icons@^2.0.0-rc.14":
   version "2.0.0-rc.14"
   resolved "https://registry.yarnpkg.com/@strapi/icons/-/icons-2.0.0-rc.14.tgz#ff3179c2c3c51ec70ac5e29982b74e1f2b531e87"
   integrity sha512-6kamFHcsoFpffp96HmFGgpM8FDezwb86sJ4c3Ydp7+eTgtEsHd8yLekAQhpaWXd2ZsHwRDbLLR0Tu1orgvRVYg==
@@ -7216,6 +7216,11 @@ media-typer@0.3.0:
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
 
+meilisearch@^0.45.0:
+  version "0.45.0"
+  resolved "https://registry.yarnpkg.com/meilisearch/-/meilisearch-0.45.0.tgz#52364961c0cee328ae3ff55d221cc7682ee3a891"
+  integrity sha512-+zCzEqE+CumY4icB0Vox180adZqaNtnr60hJWGiEdmol5eWmksfY8rYsTcz87styXC2ZOg+2yF56gdH6oyIBTA==
+
 memfs@^3.4.1, memfs@^3.4.12:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/memfs/-/memfs-3.6.0.tgz#d7a2110f86f79dd950a8b6df6d57bc984aa185f6"
@@ -9429,6 +9434,15 @@ stdin-discarder@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/stdin-discarder/-/stdin-discarder-0.2.2.tgz#390037f44c4ae1a1ae535c5fe38dc3aba8d997be"
   integrity sha512-UhDfHmA92YAlNnCfhmq0VeNL5bDbiZGg7sZ2IvPsXubGkiNa9EC+tUTsjBRsYUAz87btI6/1wf4XoVvQ3uRnmQ==
+
+strapi-plugin-meilisearch@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/strapi-plugin-meilisearch/-/strapi-plugin-meilisearch-0.13.1.tgz#e42dc28be3c9bb79a694e869849f950bf84ad604"
+  integrity sha512-9pd9mvQD8twzrZNSuH+shPtJrFVAkNNmMPkI1zCXRIxsrIuqJTUhLXQc5yog7NtYFzexSutkNQn2cjO2Prnmcg==
+  dependencies:
+    "@strapi/design-system" "^2.0.0-rc.14"
+    "@strapi/icons" "^2.0.0-rc.14"
+    meilisearch "^0.45.0"
 
 stream-chain@2.2.5, stream-chain@^2.2.5:
   version "2.2.5"

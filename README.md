@@ -18,8 +18,12 @@ Start your Strapi application with autoReload disabled. [Learn more](https://doc
 
 ```
 npm run start
+docker pull getmeili/meilisearch:latest
+docker run -it --rm -p 7700:7700 getmeili/meilisearch:latest meilisearch --master-key=masterKey
 # or
 yarn start
+docker pull getmeili/meilisearch:latest
+docker run -it --rm -p 7700:7700 getmeili/meilisearch:latest meilisearch --master-key=masterKey
 ```
 
 ### `build`
