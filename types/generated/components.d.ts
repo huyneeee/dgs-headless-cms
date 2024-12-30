@@ -47,7 +47,13 @@ export interface SharedSection extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
     media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
   };
 }
