@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "Jobs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "jobName": {
+      "type": "string",
+      "required": true
+    },
+    "jobDescription": {
+      "type": "richtext"
+    },
+    "quantity": {
+      "type": "integer",
+      "required": false,
+      "default": 0,
+      "min": 0
+    },
+    "department": {
+      "type": "enumeration",
+      "enum": [
+        "Middle School",
+        "High School",
+        "All School Administration"
+      ],
+      "default": "Middle School"
+    },
+    "startDate": {
+      "type": "datetime",
+      "required": true
+    },
+    "endDate": {
+      "type": "datetime"
+    },
+    "location": {
+      "type": "enumeration",
+      "enum": [
+        "Ha Noi"
+      ],
+      "required": true,
+      "default": "Ha Noi"
+    },
+    "workType": {
+      "type": "enumeration",
+      "enum": [
+        "Full Time",
+        "Part Time"
+      ],
+      "default": "Full Time"
+    },
+    "locationType": {
+      "type": "enumeration",
+      "enum": [
+        "On-site",
+        "Hybird",
+        "Remote"
+      ]
+    },
+    "shortJobDescription": {
+      "type": "text",
+      "required": true
+    },
+    "cadidates": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cadidate.cadidate"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cadidates",
+  "info": {
+    "singularName": "cadidate",
+    "pluralName": "cadidates",
+    "displayName": "Cadidates"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "resume": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
