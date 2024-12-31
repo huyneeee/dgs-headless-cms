@@ -10,69 +10,121 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
     "jobName": {
       "type": "string",
-      "required": true
-    },
-    "jobDescription": {
-      "type": "richtext"
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "quantity": {
       "type": "integer",
       "required": false,
       "default": 0,
-      "min": 0
+      "min": 0,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
-    "department": {
+    "block": {
       "type": "enumeration",
       "enum": [
         "Middle School",
         "High School",
         "All School Administration"
       ],
-      "default": "Middle School"
+      "default": "Middle School",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "startDate": {
-      "type": "datetime",
-      "required": true
+      "type": "date",
+      "required": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "endDate": {
-      "type": "datetime"
-    },
-    "location": {
-      "type": "enumeration",
-      "enum": [
-        "Ha Noi"
-      ],
-      "required": true,
-      "default": "Ha Noi"
-    },
-    "workType": {
-      "type": "enumeration",
-      "enum": [
-        "Full Time",
-        "Part Time"
-      ],
-      "default": "Full Time"
-    },
-    "locationType": {
-      "type": "enumeration",
-      "enum": [
-        "On-site",
-        "Hybird",
-        "Remote"
-      ]
+      "type": "date",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
     },
     "shortJobDescription": {
       "type": "text",
-      "required": true
+      "required": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     },
     "cadidates": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::cadidate.cadidate"
+    },
+    "jobDescription": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "required": true,
+      "customField": "plugin::ckeditor5.CKEditor",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "department": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "location": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "workType": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "locationType": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
     }
   }
 }

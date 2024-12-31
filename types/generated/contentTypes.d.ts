@@ -549,7 +549,8 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
 export interface ApiCadidateCadidate extends Struct.CollectionTypeSchema {
   collectionName: 'cadidates';
   info: {
-    displayName: 'Cadidates';
+    description: '';
+    displayName: 'Candidates';
     pluralName: 'cadidates';
     singularName: 'cadidate';
   };
@@ -643,27 +644,78 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
+    block: Schema.Attribute.Enumeration<
+      ['Middle School', 'High School', 'All School Administration']
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'Middle School'>;
     cadidates: Schema.Attribute.Relation<'oneToMany', 'api::cadidate.cadidate'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    department: Schema.Attribute.Enumeration<
-      ['Middle School', 'High School', 'All School Administration']
-    > &
-      Schema.Attribute.DefaultTo<'Middle School'>;
-    endDate: Schema.Attribute.DateTime;
-    jobDescription: Schema.Attribute.RichText;
-    jobName: Schema.Attribute.String & Schema.Attribute.Required;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'> &
-      Schema.Attribute.Private;
-    location: Schema.Attribute.Enumeration<['Ha Noi']> &
+    department: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    endDate: Schema.Attribute.Date &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    jobDescription: Schema.Attribute.RichText &
       Schema.Attribute.Required &
-      Schema.Attribute.DefaultTo<'Ha Noi'>;
-    locationType: Schema.Attribute.Enumeration<['On-site', 'Hybird', 'Remote']>;
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    jobName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::job.job'>;
+    location: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locationType: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     quantity: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
       Schema.Attribute.SetMinMax<
         {
           min: 0;
@@ -671,13 +723,28 @@ export interface ApiJobJob extends Struct.CollectionTypeSchema {
         number
       > &
       Schema.Attribute.DefaultTo<0>;
-    shortJobDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    startDate: Schema.Attribute.DateTime & Schema.Attribute.Required;
+    shortJobDescription: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    startDate: Schema.Attribute.Date &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    workType: Schema.Attribute.Enumeration<['Full Time', 'Part Time']> &
-      Schema.Attribute.DefaultTo<'Full Time'>;
+    workType: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
   };
 }
 

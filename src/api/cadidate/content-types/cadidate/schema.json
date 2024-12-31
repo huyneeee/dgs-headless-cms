@@ -4,7 +4,8 @@
   "info": {
     "singularName": "cadidate",
     "pluralName": "cadidates",
-    "displayName": "Cadidates"
+    "displayName": "Candidates",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,12 +25,12 @@
       "required": true
     },
     "resume": {
-      "allowedTypes": [
-        "files"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
