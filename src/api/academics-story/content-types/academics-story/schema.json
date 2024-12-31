@@ -75,6 +75,16 @@
         "college-counseling"
       ],
       "required": true
+    },
+    "mainHero": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.main-hero"
     }
   }
 }

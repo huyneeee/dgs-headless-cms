@@ -48,9 +48,7 @@
       "required": true,
       "allowedTypes": [
         "images",
-        "files",
-        "videos",
-        "audios"
+        "files"
       ],
       "pluginOptions": {
         "i18n": {
@@ -75,7 +73,8 @@
         "advisory-board",
         "senior-leadership-team",
         "high-school",
-        "middle-school"
+        "middle-school",
+        "college-counseling"
       ],
       "customField": "plugin::multi-select.multi-select"
     },

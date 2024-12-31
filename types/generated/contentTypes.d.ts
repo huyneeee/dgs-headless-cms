@@ -401,6 +401,12 @@ export interface ApiAcademicsStoryAcademicsStory
       'oneToMany',
       'api::academics-story.academics-story'
     >;
+    mainHero: Schema.Attribute.Component<'shared.main-hero', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     publishedAt: Schema.Attribute.DateTime;
     sections: Schema.Attribute.Component<'shared.section', true> &
       Schema.Attribute.SetPluginOptions<{
@@ -483,10 +489,10 @@ export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
       'oneToMany',
       'api::article.article'
     >;
-    mainhero: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+    mainHero: Schema.Attribute.Component<'shared.main-hero', false> &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
-          localized: false;
+          localized: true;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
@@ -572,6 +578,57 @@ export interface ApiCadidateCadidate extends Struct.CollectionTypeSchema {
     phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     resume: Schema.Attribute.Media<'files'> & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiClubAndActivityClubAndActivity
+  extends Struct.SingleTypeSchema {
+  collectionName: 'club_and_activities';
+  info: {
+    description: '';
+    displayName: 'ClubAndActivity';
+    pluralName: 'club-and-activities';
+    singularName: 'club-and-activity';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::club-and-activity.club-and-activity'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sections: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    seo: Schema.Attribute.Component<'shared.seo', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -765,7 +822,7 @@ export interface ApiTeammemberTeammember extends Struct.CollectionTypeSchema {
     };
   };
   attributes: {
-    avatar: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+    avatar: Schema.Attribute.Media<'images' | 'files'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
@@ -783,6 +840,7 @@ export interface ApiTeammemberTeammember extends Struct.CollectionTypeSchema {
           'senior-leadership-team',
           'high-school',
           'middle-school',
+          'college-counseling',
         ]
       > &
       Schema.Attribute.DefaultTo<'[]'>;
@@ -1350,6 +1408,7 @@ declare module '@strapi/strapi' {
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
       'api::cadidate.cadidate': ApiCadidateCadidate;
+      'api::club-and-activity.club-and-activity': ApiClubAndActivityClubAndActivity;
       'api::global.global': ApiGlobalGlobal;
       'api::job.job': ApiJobJob;
       'api::teammember.teammember': ApiTeammemberTeammember;

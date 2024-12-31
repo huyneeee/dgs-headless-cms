@@ -67,22 +67,6 @@
         }
       }
     },
-    "mainhero": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      }
-    },
     "seos": {
       "type": "component",
       "repeatable": false,
@@ -92,6 +76,16 @@
         }
       },
       "component": "shared.seo"
+    },
+    "mainHero": {
+      "type": "component",
+      "repeatable": false,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "component": "shared.main-hero"
     }
   }
 }

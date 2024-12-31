@@ -1,12 +1,26 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedMainHero extends Struct.ComponentSchema {
+  collectionName: 'components_shared_main_heroes';
+  info: {
+    displayName: 'MainHero';
+    icon: 'chartBubble';
+  };
+  attributes: {
+    description: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
+    description: '';
     displayName: 'Media';
     icon: 'file-video';
   };
   attributes: {
+    desc: Schema.Attribute.String;
     file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
@@ -47,14 +61,15 @@ export interface SharedSection extends Struct.ComponentSchema {
     icon: 'book';
   };
   attributes: {
-    description: Schema.Attribute.RichText &
+    media: Schema.Attribute.Component<'shared.media', true>;
+    textContent: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
         {
           preset: 'defaultHtml';
         }
       >;
-    media: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    title: Schema.Attribute.String;
   };
 }
 
@@ -89,6 +104,7 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.main-hero': SharedMainHero;
       'shared.media': SharedMedia;
       'shared.open-graph': SharedOpenGraph;
       'shared.rich-text': SharedRichText;
